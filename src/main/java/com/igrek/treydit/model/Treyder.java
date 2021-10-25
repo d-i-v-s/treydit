@@ -8,7 +8,7 @@ public class Treyder {
     //model for treyder
     private final UUID id;
     private final String name;
-
+    //hallo
     public Treyder(@JsonProperty("id") UUID id,
                    @JsonProperty("name") String name) {
         this.id = id;
