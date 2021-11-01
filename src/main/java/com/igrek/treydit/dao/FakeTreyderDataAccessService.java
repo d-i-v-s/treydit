@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-@Repository("fakeDao")
+@Repository("fakeTreyderDao")
 public class FakeTreyderDataAccessService implements TreyderDao{
 
     private static List<Treyder> DB = new ArrayList<>();
@@ -17,6 +17,11 @@ public class FakeTreyderDataAccessService implements TreyderDao{
     public int insertTreyder(UUID id, Treyder treyder) {
         DB.add(new Treyder(id, treyder.getName()));
         return 1;
+    }
+
+    @Override
+    public List<Treyder> selectAllTreyder() {
+        return DB;
     }
 
 

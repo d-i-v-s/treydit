@@ -2,6 +2,7 @@ package com.igrek.treydit.dao;
 
 import com.igrek.treydit.model.Treyder;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface TreyderDao {
@@ -15,4 +16,5 @@ public interface TreyderDao {
         UUID id = UUID.randomUUID();
         return insertTreyder(id, treyder);
     }
+    List<Treyder> selectAllTreyder();
 }
