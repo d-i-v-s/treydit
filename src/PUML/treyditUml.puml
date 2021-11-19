@@ -1,0 +1,91 @@
+@startuml
+class Treyder <<Entity>>{
+id : UUID
+name : Name
+username : String
+email : String
+GBDate : LocalDate
+role: Role
+reputation : Reputation
+address : Address
+phonenumber : Phonenumber
+password : String
+inventory : List<Item>
+}
+
+class Item<<Entity>>{
+id : UUID
+name : String
+cost : double
+description : String
+condition : Condition
+brand : Brand
+}
+
+class Address <<Value Object>>{
+streetname : String
+housenumber : String
+apartmentnumber : String
+doornumber : String
+zipcode : String
+city : City
+country : Country
+}
+
+class Country<<Entity>>{
+id : UUID
+name : String
+cities : List<City>
+}
+class Inve
+
+class City <<Entity>>{
+id : UUID
+name : String
+country : Country
+
+}
+class Name<<Value Object>>{
+firstname : String
+subname : String
+lastname : String
+}
+
+class Phonenumber<<Value Object>>{
+countrycode : String
+areacode : String
+serialnumber : String
+}
+
+enum Category{
+CAR
+COMPUTER
+SOFTWARE
+CLOTHE
+BAG
+PHONE
+TOY
+TABLET
+}
+
+enum Role{
+ADMIN
+TREYDER
+}
+
+enum Reputation{
+
+}
+
+enum Brand{
+NIKE
+ADIDAS
+PUMA
+}
+
+enum Condition{
+NEW
+DEFECTIVE
+}
+
+@enduml
