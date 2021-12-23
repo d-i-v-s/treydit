@@ -16,6 +16,5 @@ import javax.persistence.Embeddable;
 public class Address {
     private String streetnumber;
     private String zipcode;
-    private String city;
-    private Country country;
+
 }

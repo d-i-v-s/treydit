@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +19,8 @@ import java.util.List;
 @Table(name = "invetory")
 public class Inventory extends AbstractPersistable<Long> {
 
-    String name;
+    @OneToOne
+    private Treyder User;
     @OneToMany
     List<Item> items = new ArrayList<Item>();
 }

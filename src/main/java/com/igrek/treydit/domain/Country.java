@@ -6,19 +6,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 
-@Embeddable
-public class Country {
+@Entity
+@Table
+public class Country extends AbstractPersistable<Long> {
     private String name;
     private String iso2Code;
     private Integer countryNumber;
+
+    @OneToMany
+    List<City> city = new ArrayList<>();
 
 }

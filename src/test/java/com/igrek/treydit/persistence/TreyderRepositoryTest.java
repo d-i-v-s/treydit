@@ -27,15 +27,17 @@ public class TreyderRepositoryTest {
                                          .area_code(664)
                                          .serialnumber("1840791").build();
 
-    Address address = Address.builder().city("Vienna")
-                                       .country(at)
-                                       .streetnumber("Pernerstorfergase 60/3/18")
+    City vienna = City.builder().name("Vienna")
+                                .country(at).build();
+
+    Address address = Address.builder().streetnumber("Pernerstorfergase 60/3/18")
                                        .zipcode("1100").build();
 
     Name name = Name.builder().firstname("Cemil").subname("").lastname("Aslan").build();
 
     Treyder cemil = Treyder.builder().name(name)
             .address(address)
+            .city(vienna)
             .email("aslancemil09@gmail.com")
             .GBDate(LocalDate.of(2002,3,20))
             .password("Password")
@@ -47,10 +49,16 @@ public class TreyderRepositoryTest {
     Item handy = Item.builder().name("Iphone 11")
                                .cost(499.99)
                                .description("Iphone 11 vor einem Jahr gekauft. Aufgrund neues Handy verkauft ich es")
-                               .condition(Condition.GOD)
+                               .itemCondition(Condition.GOD)
                                .treyder(cemil).build();
 
-    Inventory inventory = Inventory.builder().name("First Inventory").items(List.of(handy)).build();
+    Item mouse = Item.builder().name("Razer Basilisk")
+            .cost(40.00)
+            .description("Maus vor einem Jahr gekauft, ist im guten Zustand")
+            .itemCondition(Condition.GOD)
+            .treyder(cemil).build();
+
+    Inventory inventory = Inventory.builder().User(cemil).items(List.of(handy,mouse)).build();
 
     //when
     var saved = repository.save(cemil);

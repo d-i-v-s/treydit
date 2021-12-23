@@ -21,7 +21,7 @@ public class Item extends AbstractPersistable<Long> {
     private  double cost;
     private  String description;
     @Enumerated(EnumType.STRING)
-    private Condition condition;
+    private Condition itemCondition;
     @ManyToOne
     private Treyder treyder;
 

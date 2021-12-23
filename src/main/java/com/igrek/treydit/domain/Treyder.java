@@ -22,6 +22,8 @@ public class Treyder extends AbstractPersistable<Long> {
     //model for treyder
     @Embedded
     private Name name;
+    @ManyToOne
+    private City city;
     private String username;
     private String email;
     private LocalDate GBDate;
@@ -34,8 +36,7 @@ public class Treyder extends AbstractPersistable<Long> {
     @Embedded
     private Phonenumber phonenumber;
     private String password;
-
-
-
+    @OneToOne
+    private Inventory inventory;
 
 }
